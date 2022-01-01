@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, 'Show Artist' %>
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Charted songs:</strong>
+  <%= @artist.charted_songs %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <% if @artist.image.present? %>
+    <%= image_tag @artist.image %>
+  <% end %>
+</p>
+
+<p>
+  <b>Destination:</b>
+	<%= link_to(destination(@artist.name), destination(@artist.name), :target => "_new") %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>

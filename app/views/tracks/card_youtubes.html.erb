@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, @playlist.name + ' YouTube' %>
+<h3 align="center"> <%= @playlist.name %> YouTube</h3>
+      <% @tracks.each_slice(4) do |track| %>
+        <div class="row">
+          <% track.each do |track| %>
+            <div class="col-xs-3">
+              <div class="youtube">
+                <object>
+                  <param name="movie">
+                  <param name="wmode" value="transparent">
+                  <param name="allowFullScreen" value="true">
+                  <param name="allowScriptAccess" value="always">
+                  <embed <%= %[src=http://www.youtube.com/v/#{track.song.code}?version=3] %>
+                    type="application/x-shockwave-flash" allowscriptaccess="always"
+                    allowfullscreen="true" wmode="transparent" width="120" height="90">
+                </object>
+              </div>
+              <div>
+                <%= truncate(track.song.title, length: 18) %>
+              </div>
+            </div> <!-- end of col -->
+          <% end %>
+        </div> <!-- end of row -->
+    <% end %>
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/tether.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>

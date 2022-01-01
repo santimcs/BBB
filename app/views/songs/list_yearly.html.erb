@@ -1,0 +1,30 @@
+<h3><%= 'Billboard 1979' %></h3>
+    <!-- start of row -->
+    <div class="row">
+        <!-- start of loop -->
+        <% @songs.each do |song| %>
+            <!-- start of col -->
+            <div class='col s12 m6 l3'>
+                <!-- start of card -->            
+                <div class="card teal">
+                    <div class="video-container">
+                        <iframe <%= %[src=https://www.youtube.com/embed/#{song.code}] %> 
+                        frameborder="0" allowfullscreen allow="autoplay"></iframe>
+
+                    </div>
+                    <!-- start of card-content -->                            
+                    <div class='card-content'>
+                        <span class="card-title center-align truncate white-text"><%= song.title %></h5>
+                        <p class="center-align truncate white-text"><%=  song.artist.name %></p>                        
+                    </div> 
+                    <!-- end of card-content -->                            
+                </div>
+                <!-- end of card -->                            
+            </div> 
+            <!-- end of col -->
+        <% end %> 
+        <!-- end of loop -->
+    </div>
+    <!-- end of row -->
+
+

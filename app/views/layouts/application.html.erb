@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <%= csrf_meta_tags %>
+    <title><% if content_for?(:title) %><%= yield :title %><% else %>Billboard<% end %></title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="#">Songs to Remember</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="uploaded.html">Uploaded Songs</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Playlists
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Adele', "pl_Adele.html", class: "dropdown-item" %>
+              <%= link_to 'Carpenters', "pl_carpenters.html", class: "dropdown-item" %>
+              <%= link_to 'Elton John', "pl_Elton_John.html", class: "dropdown-item" %>
+
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Adele', "yt_Adele.html", class: "dropdown-item" %>
+              <%= link_to 'Carpenters', "yt_The_Carpenters.html", class: "dropdown-item" %>
+              <%= link_to 'Elton John', "yt_Elton_John.html", class: "dropdown-item" %>
+              <%= link_to 'Female Singers', "yt_Female_Singers.html", class: "dropdown-item" %>
+            </div>
+          </li>
+          <!-- begin of delete section -->
+          <li class="nav-item">
+            <%= link_to 'Uploaded', uploaded_songs_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'RS500', uploaded_rs500_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Songs', songs_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'List', list_artists_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Artists', artists_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Lyrics', lyrics_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Playlists', playlists_path, class: "nav-link" %>
+          </li>
+        <!-- end of delete section -->
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container <%= controller_name %> <%= action_name %>">
+      <%= yield %>
+    </div> <!-- end of container from application -->
+
+    <footer>
+      <p>&copy; 2018 Santi All Rights Reserved. All Wrongs Reversed.</p>
+    </footer>
+
+  </body>
+</html>

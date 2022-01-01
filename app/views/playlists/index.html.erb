@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, 'Playlists' %>
+<h1>Playlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Artists</th>
+      <th>Tracks</th>
+
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @playlists.each do |playlist| %>
+      <tr>
+        <td><%= playlist.name %></td>
+        <td><%= playlist.artists %></td>
+        <td><%= playlist.tracks.count %></td>
+        <td><%= link_to 'Show', playlist %></td>
+        <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
+        <td><%= link_to 'Tracks', playlist_tracks_path(playlist) %></td>
+        <td><%= link_to 'Website', "/list_tracks/#{playlist.id}" %></td>
+        <td><%= link_to 'Youtube', "/list_youtubes/#{playlist.id}" %></td>
+        <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Playlist', new_playlist_path %>

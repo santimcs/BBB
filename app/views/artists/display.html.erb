@@ -1,0 +1,28 @@
+<% content_for :title, @artist.name %>
+<h3><%= @artist.name %></h3>
+  <!-- start of loop -->
+  <% @songs.each do |song| %>
+    <!-- start of call-outs-container -->
+    <div class="call-outs-container">
+      <div class='call-out'>
+          <p><%= song.nbr %></p>
+      </div> 
+      <div class='call-out'>
+        <!-- start of youtube section -->
+        <object>
+          <param name="movie">
+          <param name="wmode" value="transparent">
+          <param name="allowFullScreen" value="true">
+          <param name="allowScriptAccess" value="always">
+          <embed <%= %[src=http://www.youtube.com/v/#{song.code}?rel=0] %>
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="185" height="105">
+        </object>
+        <!-- end of youtube section -->        
+      </div>
+      <div class='call-out'>
+          <p><%= song.title %></p>
+      </div> 
+    </div> <!-- end of call-outs-container -->
+  <% end %> <!-- end of loop -->
+

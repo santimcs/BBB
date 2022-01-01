@@ -1,0 +1,34 @@
+<%= form_for([@playlist, track]) do |form| %>
+<% if track.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@playlist.tracks.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+    <ul>
+    <% @playlist.tracks.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <div class="field">
+    <%= form.label :position %>
+    <%= form.number_field :position, id: :track_position %>
+  </div>
+
+  <div class="field">
+    <%= form.label :song_id %>
+    <%= form.collection_select :song_id, Song.joins(:artist)
+    .where("playlist = True AND uploaded = False")
+    .order("title asc"), :id, :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :playlist_id %>
+    <%= form.collection_select :playlist_id, Playlist.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

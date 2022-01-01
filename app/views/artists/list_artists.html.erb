@@ -1,0 +1,30 @@
+<% content_for :title, 'Chosen Artists' %>
+<h3>Songs by Artists</h3>
+
+<table id="artists" class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Charted Songs</th>
+      <th>Display</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% nbr_of_artists = 0 %>
+    <% @artists.each do |artist| %>
+      <% nbr_of_artists = nbr_of_artists + 1 %>
+      <tr>
+        <td><%= artist.name %></td>
+        <td><%= artist.charted_songs %></td>
+        <td><%= link_to 'Display', controller: :artists, action: :display,
+        id: artist, target: "_new" %></td>
+        <td><%= link_to 'Player', controller: :artists, action: :player,
+        id: artist, target: "_new" %></td>        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= 'Number of artists =' + nbr_of_artists.to_s %>

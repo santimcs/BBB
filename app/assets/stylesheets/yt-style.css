@@ -1,0 +1,27 @@
+body {
+  font-family: "Georgia", "Arial", sans-serif;
+}
+
+h3 {
+  border-left: 5px #666 solid;
+  border-bottom: 1px #666 solid;
+  padding: 0 0 5px 10px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.name {
+  font-size: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  height: 40px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding-top: 10px;
+}

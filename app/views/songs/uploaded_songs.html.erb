@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, 'Uploaded Songs' %>
+<h3>Uploaded Songs</h3>
+
+<table id="uploaded_songs" class="display table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Rank</th>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Views</th>
+      <th>Show</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% number_of_songs = 0 %>
+    <% total_time = 0 %>
+    <% total_views = 0 %>
+    <% @songs.each do |song| %>
+      <% number_of_songs = number_of_songs + 1 %>
+      <% total_time = total_time + song.duration %>
+      <% total_views = total_views + song.views %>
+      <tr>
+        <td><%= song.year %></td>
+        <td><%= song.rank %></td>
+        <td class="title"><%= song.title %></td>
+        <td class="name"><%= song.artist.name %></td>
+        <%# <td><%= seconds_to_time(song.duration) </td> %>
+        <td class="views"><%= song.views %></td>
+        <% url_song = 'b' + song.year.to_s[2,3] + song.rank.to_s.rjust(2, '0') + '.html' %>
+        <td><%= link_to('Show', url_song, :target => "_new", class: "btn btn-primary") %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<p>
+<span><%= 'Number of Songs = ' + number_of_songs.to_s %></span>
+<span><%= 'Total Duration = ' + seconds_to_hour(total_time) %></span>
+<span><%= 'Total Views = ' + number_to_human(total_views, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' }) %></span>
+</p>
+<script type="text/javascript" src="js/tether.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>

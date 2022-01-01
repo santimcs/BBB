@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, @playlist.name %>
+<h1> Tracks for <%= @playlist.name %></h1>
+<% if !@playlist.tracks.empty? %>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Audio</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% number_of_songs = 0 %>
+      <% total_time = 0 %>
+      <% @tracks.each do |track| %>
+        <% number_of_songs = number_of_songs + 1 %>
+        <% total_time = total_time + track.song.duration %>
+        <tr>
+          <td><%= track.position %></td>
+          <td><%= link_to track.song.title, controller: :songs, action: :show, id: track.song %></td>
+          <td><%= audio_tag(track.song.mp3, autoplay: false, controls: true, preload: "auto") %></td>
+          <td><%= link_to 'Show', [@playlist, track] %></td>
+          <td><%= link_to 'Edit', edit_playlist_track_path( @playlist, track ) %></td>
+          <td><%= link_to 'Destroy', [ @playlist, track ], method: :delete,
+          data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="3" align="center"><%= 'Number of Songs = ' + number_of_songs.to_s %></td>
+        <td colspan="3" align="center"><%= 'Total Time = ' + seconds_to_hour(total_time) %></td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= @playlist.name %> has no track yet.</p>
+<% end %>
+<br>
+<%= link_to 'New Track', new_playlist_track_path(@playlist) %> |
+<%= link_to 'Back', @playlist %>

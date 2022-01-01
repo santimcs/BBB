@@ -1,0 +1,86 @@
+<% content_for :title, @song.title %>
+<div class="row">
+  <!-- start of left column -->
+  <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="card card-inverse" style="background:#000;">
+      <!-- start of youtube section -->
+      <div class="card-block" style="align:center;">
+        <object>
+          <param name="movie">
+          <param name="wmode" value="transparent">
+          <param name="allowFullScreen" value="true">
+          <param name="allowScriptAccess" value="always">
+          <embed <%= %[src=http://www.youtube.com/v/#{@song.code}?version=3] %>
+            type="application/x-shockwave-flash" allowscriptaccess="always"
+            allowfullscreen="true" wmode="transparent" width="400" height="200">
+        </object>
+      </div> <!-- end of card-block -->
+    </div> <!-- end of card -->
+    <!-- end of youtube section -->
+    <!-- start of summary table section -->
+    <div class="card text-center text-white bg-dark">
+      <div class="card-header"><%= @song.title %></div>
+      <div class="card-block">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Year:</td>
+              <td><%= @song.year %></td>
+            </tr>
+            <tr>
+              <td>Rank:</td>
+              <td><%= @song.rank %></td>
+            </tr>
+            <tr>
+              <td>Duration:</td>
+              <td><%= seconds_to_time(@song.duration) %></td>
+            </tr>
+            <tr>
+              <td>Views:</td>
+              <td><%= number_to_human(@song.views, :format => '%n%u', :precision => 2, :units => { :thousand => 'K', :million => 'M', :billion => 'B' }) %></td>
+            </tr>
+                                    <%# <tr>
+              <td>Publish Date:</td> 
+              <td><%= @song.publish_date </td>
+            </tr> %>
+
+          </tbody>
+        </table>
+      </div> <!-- end of card-block -->
+    </div> <!-- end of card -->
+    <!-- end of summary table section -->
+    <!-- start of image section -->
+    <div class="card text-center text-white bg-dark">
+      <div class="card-header"><%= @song.artist.name %></div>
+  		<%= image_tag @song.artist.image, class: "card-img-top img-fluid" %>
+      <div class="card-footer">
+        <% wiki_artist='https://en.wikipedia.org/wiki/'+CGI.escape(@song.artist.name.tr(' ','_')) %>
+    		<%= link_to('Artist Wiki', wiki_artist, :target => "_new", class: "btn btn-info") %>
+      </div>
+    </div> <!-- enf of card -->
+    <!-- end of image section -->
+  </div> <!-- end of Left col -->
+  <!-- start of lyrics column -->
+  <div class="col-lg-6 col-md-6 col-xs-12">
+    <div class="card text-center text-white bg-dark">
+      <div class="card-header"><%= audio_tag(@song.mp3, autoplay: false, controls: true, preload: "auto") %></div>
+      <div class="card-block">
+        <span class="h4 card-title"><%= @song.title %></span>
+        <% if Lyric.exists?(:song_id=>@song.id) %>
+      		<%= simple_format(@song.lyric.content) %>
+      	<% else %>
+      		<%= 'No lyric' %>
+      	<% end %>
+        <% wiki_song='https://en.wikipedia.org/wiki/' + CGI.escape(@song.title.tr(' ','_')) %>
+        <%= link_to('Read More', wiki_song, :target => "_new", class: "btn btn-primary") %>
+      </div> <!-- end of card block -->
+    </div> <!-- end of card -->
+  </div> <!-- end of lyrics col -->
+</div> <!-- end of row -->
+<!-- begin of delete section -->
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
+<!-- end of delete section -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/tether.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>

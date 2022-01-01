@@ -1,0 +1,6 @@
+<h1>Editing Track for <%= @playlist.name %></h1>
+
+<%= render 'form', track: @track %>
+
+<%= link_to 'Show', [@playlist, @track] %> |
+<%= link_to 'Back', playlist_tracks_path(@playlist) %>

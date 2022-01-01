@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, @playlist.name %>
+<p>
+  <strong>Name:</strong>
+  <%= @playlist.name %>
+</p>
+
+<p>
+  <strong>Artists:</strong>
+  <%= @playlist.artists %>
+</p>
+<h3>Tracks</h3>
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Title</th>
+    <th>Artist</th>
+  </tr>
+  <% for track in @playlist.tracks %>
+    <tr>
+      <td><%= track.position %></td>
+      <td><%= track.song.title %></td>
+      <td><%= track.song.artist.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Edit', edit_playlist_path(@playlist) %> |
+<%= link_to 'Tracks', playlist_tracks_path(@playlist) %> |
+<%= link_to 'Back', playlists_path %>

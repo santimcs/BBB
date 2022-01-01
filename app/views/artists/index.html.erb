@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, 'Artists' %>
+<h1>Artists</h1>
+<section class="search-form">
+  <%= form_for :songs, method: :get do |f| %>
+    <div class="input-group input-group-md">
+      <%= label_tag :keywords, nil, class: "sr-only" %>
+      <%= text_field_tag :keywords, nil,
+            placeholder: "Artist Name",
+                  class: "form-control input-md" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Find Artists",
+              class: "btn btn-primary btn-md" %>
+      </span>
+    </div>
+  <% end %>
+</section>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Charted songs</th>
+      <th>Image</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @artists.each do |artist| %>
+      <tr>
+        <td><%= artist.name %></td>
+        <td><%= artist.charted_songs %></td>
+        <td><%= artist.image %></td>
+        <td><%= link_to 'Show', artist %></td>
+        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
+        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Display', controller: :artists, action: :display,
+        id: artist, target: "_new" %></td>
+        <td><%= link_to 'Player', controller: :artists, action: :player,
+        id: artist, target: "_blank" %></td>        
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Artist', new_artist_path %>

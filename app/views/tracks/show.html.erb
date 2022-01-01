@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @track.position %>
+</p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @track.song.title %>
+</p>
+
+<p>
+  <strong>Playlist:</strong>
+  <%= @track.playlist.name %>
+</p>
+
+<p>
+  <strong>Audio:</strong>
+  <%= audio_tag(@track.song.mp3, autoplay: false, controls: true, preload: "auto") %>
+</p>
+
+<%= link_to 'Edit', edit_playlist_track_path(@playlist, @track) %> |
+<%= link_to 'Tracks', playlist_tracks_path(@playlist) %> |
+<%= link_to 'Back', playlist_tracks_path(@playlist) %>

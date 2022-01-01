@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<% content_for :title, @playlist.name + ' Playlist' %>
+<h3 align="center"> <%= @playlist.name %> Playlist</h3>
+<% if !@playlist.tracks.empty? %>
+  <table class='table table-inverse table-hover'>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Audio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% number_of_songs = 0 %>
+      <% total_time = 0 %>
+      <% @tracks.each do |track| %>
+        <% number_of_songs = number_of_songs + 1 %>
+        <% total_time = total_time + track.song.duration %>
+        <tr>
+          <td><%= track.position %></td>
+          <% url_song = 'b' + track.song.year.to_s[2,2] + track.song.rank.to_s.rjust(2, '0') + '.html' %>
+          <td><%= link_to track.song.title,  url_song, :target => "_new" %></td>
+          <td><%= audio_tag(track.song.mp3, autoplay: false, controls: true, preload: "auto") %></td>
+
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="2" align="center"><%= 'Number of Songs = ' + number_of_songs.to_s %></td>
+        <td align="center"><%= 'Total Time = ' + seconds_to_hour(total_time) %></td>
+      </tr>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= @playlist.name %> has no track yet.</p>
+<% end %>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/tether.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>

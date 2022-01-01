@@ -1,0 +1,28 @@
+<% content_for :title, 'New Lyrics' %>
+
+<%= form_for(@lyric) do |f| %>
+  <% if @lyric.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lyric.errors.count, "error") %> prohibited this lyric from being saved:</h2>
+
+      <ul>
+      <% @lyric.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :song_title %><br />
+    <%= f.collection_select :song_id, Song.joins(:artist).where("will_upload = True").order("title ASC"), :id, :title %>
+
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, cols: 40, rows: 20 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

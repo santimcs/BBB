@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="csrf-param" content="authenticity_token" />
+        <meta name="csrf-token" content="6ljaHuDM6ER3rZkQX87XySJtpxXtnSKScLy+EFFoUwD8WfGsS2AD/Nfw/5/w4nzmgbK4vDNv0sUIEZmj7olx0g==" />
+        <title>Display Artist</title>
+        <link rel="stylesheet" media="all" href="/assets/artists.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/bootstrap.self-6f06509d7fb53e13ec206040c696a0ea6fcb7927508502a93323056e3010dfdb.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/lyrics.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/playlists.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/scaffolds.self-119f897228afd60c300b0d39863f5ac6984b9b283acd0a11d23846f9e8e1e471.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/songs.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/tracks.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/yt-style.self-e81c707b622ae7d9025feb82ad5726d95d93fe22b0b8d1fed6527963e41c6ff0.css?body=1" />
+        <link rel="stylesheet" media="all" href="/assets/application.self-f0d704deea029cf000697e2c0181ec173a1b474645466ed843eb5ee7bb215794.css?body=1" />
+        <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1"></script>
+        <script src="/assets/artists.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/bootstrap.self-8e84133c623bc4d897e342c1ee5ead00b01f43b4b1eff6480b092650e1d682f5.js?body=1"></script>
+        <script src="/assets/action_cable.self-69fddfcddf4fdef9828648f9330d6ce108b93b82b0b8d3affffc59a114853451.js?body=1"></script>
+        <script src="/assets/cable.self-8484513823f404ed0c0f039f75243bfdede7af7919dda65f2e66391252443ce9.js?body=1"></script>
+        <script src="/assets/jquery.min.self-875821d1e3121b366b94ea86a07f3cbc5c76cb16a319bc62212c03a805ff20e9.js?body=1"></script>
+        <script src="/assets/lyrics.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/playlists.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/songs.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/tether.min.self-29438e562b307eac2d6d20e6a2dad6aa76f8ba9e345c9235e887d34faa4e761a.js?body=1"></script>
+        <script src="/assets/tracks.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1"></script>
+        <script src="/assets/application.self-58b1eb225e13e3709a67ff1fd3579ba47e1509e0221833d7f486543e09ddef38.js?body=1"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a class="navbar-brand" href="#">Songs to Remember</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="uploaded.html">Uploaded Songs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Playlists
+            </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="pl_Adele.html">Adele</a>
+                            <a class="dropdown-item" href="pl_carpenters.html">Carpenters</a>
+                            <a class="dropdown-item" href="pl_Elton_John.html">Elton John</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="yt_Adele.html">Adele</a>
+                            <a class="dropdown-item" href="yt_The_Carpenters.html">Carpenters</a>
+                            <a class="dropdown-item" href="yt_Elton_John.html">Elton John</a>
+                            <a class="dropdown-item" href="yt_Female_Singers.html">Female Singers</a>
+                        </div>
+                    </li>
+                    <!-- begin of delete section -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/uploaded_songs">Uploaded</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/songs">Songs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/list_songs">List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/artists">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lyrics">Lyrics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/playlists">Playlists</a>
+                    </li>
+                    <!-- end of delete section -->
+        
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <p id="notice"></p>
+            <h3>
+  ABBA
+</h3>
+            <div class="container">
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/Sj_9CiNkkn4?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Waterloo
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/xFrGuyw1V8s?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Dancing Queen
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/iUrzicaiRLU?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Knowing Me, Knowing You
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/-crgQGdpZR0?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Take a Chance on Me
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/iJ90ZqH0PWI?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          The Name of the Game
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/iyIOl-s7JTU?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          The Winner Takes It All
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/unfzfe8f9NI?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Mamma Mia
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/dQsjAbZDx-4?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Fernando
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/XEjLoHdbVeE?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Gimme! Gimme! Gimme!
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/cvChjHcABPA?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          SOS
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+                <div class="row">
+                    <div class='col-xs-4'>
+                        <!-- start of youtube section -->
+                        <object>
+                            <param name="movie">
+                            <param name="wmode" value="transparent">
+                            <param name="allowFullScreen" value="true">
+                            <param name="allowScriptAccess" value="always">
+                            <embed src=http://www.youtube.com/v/BshxCIjNEjY?rel=0
+                      type="application/x-shockwave-flash" allowscriptaccess="always"
+                      allowfullscreen="true" wmode="transparent" width="130" height="75">
+        
+                        </object>
+                    </div>
+                    <!-- end of col -->
+                    <div class='col-xs-8'>
+                        <p class="align-middle">
+          Super Trouper
+        </p>
+                    </div>
+                    <!-- end of col -->
+    
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of row -->
+
+    
+        </div>
+        <!-- end of container from application -->
+        <footer>
+            <p>&copy; 2018 Santi All Rights Reserved. All Wrongs Reversed.</p>
+        </footer>
+    </body>
+</html>
